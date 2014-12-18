@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+}
+
+<div class="container">
+    <div class="codrops-top clearfix">
+        <a class="codrops-icon codrops-icon-prev" href="mailto:teslyukt@gmail.com"><span>Feedback</span></a>
+        <span class="right">
+        </span>
+    </div>
+    <header class="codrops-header">
+        <h1>ROZETKA <span>An inspirational collection of cell phone art</span></h1>
+    </header>
+    <div class="content">
+        @Html.Raw(RozetkaWebApplication.RozetkaDatabase.CompileToHtml(RozetkaWebApplication.RozetkaDatabase.SelectItems()))
+    </div>
+    <section class="related">
+        <h3>Taras Teslyuk </h3>
+        <p><strong>Labworks 1-4</strong></p>
+    </section>
+</div><!-- /container -->
+<script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
+</script>

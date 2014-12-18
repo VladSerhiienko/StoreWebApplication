@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sports & Hobbies</title>
+    <meta name="description" content="Sports & Hobbies: Winners never quit and quitters never win" />
+    <meta name="keywords" content="sport, hobby, inspiration, web design, css, modern, effects, svg" />
+    <meta name="author" content="Vlad Serhiienko" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Store/css")
+    @Scripts.Render("~/Store/js")
+</head>
+<body>
+    <script>
+        var storeSections = {
+            electronics: "electronics",
+            multimedia: "multimedia",
+            clothing: "clothing",
+            toys: "toys",
+            all: "all",
+        };
+        Object.freeze(storeSections);
+        function sectionClicked(section) {
+            var storeUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?store-item-kind=' + section;
+            window.location.assign(storeUrl);
+        }
+    </script>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+        </div>
+    </header>
+
+    @RenderSection("featured", required: false)
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+<footer>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <p>&copy; @DateTime.Now.Year - StoreWebApplication</p>
+        </div>
+    </div>
+</footer>

@@ -34,7 +34,7 @@
 
     var storeSections = {
         electronics: "electronics",
-        multimedia: "multimedia",
+        multimedia: "multimedia",   
         clothing: "clothing",
         toys: "toys",
         all: "all",

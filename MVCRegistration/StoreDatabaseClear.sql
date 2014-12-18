@@ -1,0 +1,1 @@
+﻿DELETE FROM [dbo].[StoreItems] WHERE [ItemKnd] = 0

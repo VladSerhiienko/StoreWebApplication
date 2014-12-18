@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+}
+
+<div class="container">
+    <header class="codrops-header">
+        <h1>Sports & Hobbies Issues<span>Winners never quit and quitters never win</span></h1>
+        <p class="support">Your browser does not support <strong>flexbox</strong>! <br />Please view this demo with a <strong>modern browser</strong>.</p>
+    </header>
+    <section>
+        <div class="tabs tabs-style-linetriangle">
+            <nav>
+                <ul>
+                    <li @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionDesc(Request, 1))><a href="#section-linetriangle-1" onclick="sectionClicked(storeSections.all)"><span>All Products</span></a></li>
+                    <li @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionDesc(Request, 2))><a href="#section-linetriangle-2" onclick="sectionClicked(storeSections.electronics)"><span>Electronics</span></a></li>
+                    <li @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionDesc(Request, 3))><a href="#section-linetriangle-3" onclick="sectionClicked(storeSections.clothing)"><span>Clothing</span></a></li>
+                    <li @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionDesc(Request, 4))><a href="#section-linetriangle-4" onclick="sectionClicked(storeSections.multimedia)"><span>Multimedia</span></a></li>
+                    <li @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionDesc(Request, 5))><a href="#section-linetriangle-5" onclick="sectionClicked(storeSections.toys)"><span>Toys</span></a></li>
+                </ul>
+            </nav>
+            <div class="content-wrap">
+                <section @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionContainerDesc(Request, 1))><p>All Products</p></section>
+                <section @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionContainerDesc(Request, 2))><p>Electronics</p></section>
+                <section @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionContainerDesc(Request, 3))><p>Clothing</p></section>
+                <section @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionContainerDesc(Request, 4))><p>Multimedia</p></section>
+                <section @Html.Raw(StoreWebApplication.StoreDatabase.HtmlSectionContainerDesc(Request, 5))><p>Toys</p></section>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid-wrap">
+        <ul class="grid swipe-rotate" id="grid">
+            @Html.Raw(StoreWebApplication.StoreDatabase.CompileToHtml(Request))
+        </ul>
+    </section>
+
+    <section class="codrops-header">
+        <h1>Prime Factorization<span>Server generates the random number and extracts its prime factors</span></h1>
+        <% Response.Write(PrimeFactorizer.CompileToHtmlRandom()); %>
+    </section>
+    <section class="related">
+        <h1>Vlad Serhiienko</h1>
+    </section>
+</div>
+<script>
+    new GridScrollFx( document.getElementById('grid'), { viewportFactor : 0.4 });
+    (function() { [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) { new CBPFWTabs(el); }); })();
+</script>

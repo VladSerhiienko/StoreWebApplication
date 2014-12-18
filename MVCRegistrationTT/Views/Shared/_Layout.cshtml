@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ROZETKA | TarasTeslyuk | Labworks</title>
+    <meta name="description" content="ROZETKA: Inspiration for cell phones" />
+    <meta name="keywords" content="inspiration, grid, thumbnail, transition, subtle, web design, rozetka, cell, phone, art, inspiration" />
+    <meta name="author" content="Taras Teslyuk" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Rozetka/css")
+</head>
+<body>
+    <script>
+        var storeSections = {
+            electronics: "electronics",
+            multimedia: "multimedia",
+            clothing: "clothing",
+            toys: "toys",
+            all: "all",
+        };
+        Object.freeze(storeSections);
+        function sectionClicked(section) {
+            var storeUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?store-item-kind=' + section;
+            window.location.assign(storeUrl);
+        }
+    </script>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+        </div>
+    </header>
+
+    @RenderSection("featured", required: false)
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+<footer>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <p>&copy; @DateTime.Now.Year - RozetkaWebApplication</p>
+        </div>
+    </div>
+</footer>
